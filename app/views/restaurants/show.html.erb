@@ -1,0 +1,17 @@
+<div class="container m-5 border">
+<h1>Restaurant show</h1>
+<%= @restaurant.name %>
+<%= @restaurant.address %>
+<%= @restaurant.category %>
+<%= @restaurant.phone_number %>
+
+
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+
+
+<%= link_to "back to index", restaurants_path, class: "btn btn-primary" %>
+</div>

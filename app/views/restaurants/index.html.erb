@@ -1,0 +1,18 @@
+<div class="container border m-5">
+
+<h1>RESTAURANTS</h1>
+
+
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+
+    <li><%= link_to restaurant.name, restaurant_path(restaurant) %>
+    <%= link_to 'Leave a review', new_restaurant_review_path(restaurant) %></li>
+        <% end %>
+</ul>
+
+
+<%= link_to "add a new restaurant", new_restaurant_path, class:"btn btn-warning" %>
+
+</div>
