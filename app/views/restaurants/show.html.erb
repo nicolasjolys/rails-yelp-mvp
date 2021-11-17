@@ -1,17 +1,33 @@
-<div class="container m-5 border">
-<h1>Restaurant show</h1>
-<%= @restaurant.name %>
-<%= @restaurant.address %>
-<%= @restaurant.category %>
-<%= @restaurant.phone_number %>
+<div class="container">
+<div class="container m-5 border-3">
+  <div class="container card flex m-5">
+  <%= @restaurant.name %>
+  <%= @restaurant.address %>
+  category: <%= @restaurant.category %>
+  phone: <%= @restaurant.phone_number %>
+</div>
 
+<div class="container-sm d-flex mt-5 flex">
 
-<ul class="list-group">
+  <%= simple_form_for [ @restaurant, @review ] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating, :collection => 0..5, :prompt => "number between 0 and 5"%>
+    <p class="btn btn-primary"><%= f.submit %></p>
+  <% end %>
+</div>
+
+<ul class="list-group rev">
   <% @restaurant.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
+    <div class="list-group-item d-flex justify-content-between">
+      <div> <%= review.content %> </div>
+      <div>
+        <% (review.rating.to_i).times do %>
+          *
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </ul>
-
-
-<%= link_to "back to index", restaurants_path, class: "btn btn-primary" %>
 </div>
+</div>
+<%= link_to "back to index", restaurants_path, class: "btn btn-primary" %>

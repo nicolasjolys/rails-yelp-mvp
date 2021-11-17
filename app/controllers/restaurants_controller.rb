@@ -5,6 +5,14 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @restaurant.reviews << Review.new
+    @review = @restaurant.reviews.last
+
+    # sum = 0
+    # @restaurant.reviews.each do |review|
+    #   sum += review.rating
+    # end
+    # @average = (sum.to_f / @restaurant.reviews.count).to_f
   end
 
   def new

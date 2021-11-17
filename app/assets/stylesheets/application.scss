@@ -14,3 +14,21 @@
 
 // adding botstrap
 @import "bootstrap/scss/bootstrap";
+
+
+
+body {
+  display: flex;
+}
+
+
+* {
+  font-size: 12px;
+  background-color: aliceblue;
+}
+
+
+div {
+  width: 200px
+  
+}
